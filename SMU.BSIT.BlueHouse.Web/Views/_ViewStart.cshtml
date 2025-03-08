@@ -1,3 +1,4 @@
 ﻿@{
-    Layout = "_Layout";
+    var requestPath = Context.Request.Path.ToString().ToLower();
+    Layout = requestPath.StartsWith("/admin") ? "_LayoutAdmin" : "_LayoutCustomer";
 }

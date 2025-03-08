@@ -1,0 +1,20 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>net8.0</TargetFramework>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <Nullable>enable</Nullable>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Folder Include="Services\Orders\" />
+    <Folder Include="Services\Payments\" />
+    <Folder Include="Services\Quotes\" />
+    <Folder Include="Users\" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\SMU.BSIT.BlueHouse.Persistence\SMU.BSIT.BlueHouse.Persistence.csproj" />
+  </ItemGroup>
+
+</Project>

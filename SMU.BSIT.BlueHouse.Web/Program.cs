@@ -1,7 +1,9 @@
-var builder = WebApplication.CreateBuilder(args);
+using SMU.BSIT.BlueHouse.Web.DependencyInjection;
 
+var builder = WebApplication.CreateBuilder(args);
 // Add services to the container.
 builder.Services.AddControllersWithViews();
+builder.Services.InjectBlueHouseServices(builder.Configuration);
 
 var app = builder.Build();
 

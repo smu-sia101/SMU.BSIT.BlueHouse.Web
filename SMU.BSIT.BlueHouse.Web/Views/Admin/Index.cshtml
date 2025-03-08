@@ -1,0 +1,83 @@
+﻿@{
+    ViewData["Title"] = "Admin Dashboard";
+}
+
+<div class="container-fluid p-3 bg-light" id="page-content" style="background-color: #f5f7fa;">
+    <!-- Dashboard Stats -->
+    <div class="row">
+        <div class="col-md-3">
+            <div class="card text-white mb-3" style="background-color: #003366;">
+                <!-- Navy Blue -->
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-box"></i> Products</h5>
+                    <p class="card-text">50</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white mb-3" style="background-color: #3399cc;">
+                <!-- Sky Blue -->
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-users"></i> Users</h5>
+                    <p class="card-text">120</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white mb-3" style="background-color: #66BB6A;">
+                <!-- Grey -->
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-chart-line"></i> Sales</h5>
+                    <p class="card-text">$5,230</p>
+                </div>
+            </div>
+        </div>
+        <div class="col-md-3">
+            <div class="card text-white mb-3" style="background-color: #FF8800;">
+                <!-- Orange for Issues -->
+                <div class="card-body">
+                    <h5 class="card-title"><i class="fas fa-exclamation-triangle"></i> Issues</h5>
+                    <p class="card-text">3 Pending</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Placeholder Table -->
+    <div class="card mt-3 border-0 shadow-sm" style="background-color: #ffffff;">
+        <div class="card-header text-white" style="background-color: #003366;">Recent Orders</div>
+        <div class="card-body">
+            <table class="table table-striped">
+                <thead class="text-white" style="background-color: #3399cc;">
+                    <tr>
+                        <th>Order ID</th>
+                        <th>Customer</th>
+                        <th>Status</th>
+                        <th>Total</th>
+                        <th>Date</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>#1001</td>
+                        <td>John Doe</td>
+                        <td><span class="badge" style="background-color: #003366;">Completed</span></td>
+                        <td>$120</td>
+                        <td>March 9, 2025</td>
+                    </tr>
+                    <tr>
+                        <td>#1002</td>
+                        <td>Jane Smith</td>
+                        <td><span class="badge" style="background-color: #888888;">Pending</span></td>
+                        <td>$340</td>
+                        <td>March 8, 2025</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+
+@section Scripts {
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.2/js/all.min.js"></script>
+}
