@@ -9,7 +9,7 @@
   <ItemGroup>
     <Folder Include="Services\Orders\" />
     <Folder Include="Services\Payments\" />
-    <Folder Include="Services\Quotes\" />
+    <Folder Include="Services\OrdersCart\" />
     <Folder Include="Users\" />
   </ItemGroup>
 

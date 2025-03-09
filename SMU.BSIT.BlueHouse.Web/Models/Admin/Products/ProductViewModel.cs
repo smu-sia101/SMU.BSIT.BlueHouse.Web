@@ -1,6 +1,6 @@
 ﻿using System.ComponentModel.DataAnnotations;
 
-namespace SMU.BSIT.BlueHouse.Web.Models.Admin
+namespace SMU.BSIT.BlueHouse.Web.Models.Admin.Products
 {
     public class ProductViewModel
     {

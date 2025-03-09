@@ -2,37 +2,47 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>@ViewData["Title"] - Customer Portal</title>
+    <title>@ViewData["Title"] - BlueHouse</title>
     <link rel="stylesheet" href="~/lib/bootstrap/dist/css/bootstrap.min.css" />
     <link rel="stylesheet" href="~/css/customer.css" asp-append-version="true" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" integrity="sha384-..." crossorigin="anonymous">
 </head>
 <body>
     <header>
         <nav class="navbar navbar-expand-lg navbar-light bg-white shadow-sm">
             <div class="container-fluid">
-                <a class="navbar-brand" asp-controller="Home" asp-action="Index">Customer Portal</a>
-                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
+                <a class="navbar-brand fw-bold text-primary" asp-controller="Home" asp-action="Index">BlueHouse</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav"
+                        aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
                 </button>
-                <div class="collapse navbar-collapse" id="navbarNav">
-                    <ul class="navbar-nav ms-auto">
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Home" asp-action="Index">Home</a>
+                <div class="collapse navbar-collapse justify-content-end" id="navbarNav">
+                    <ul class="navbar-nav align-items-center">
+                        <!-- Shopping Cart Icon -->
+                        <li class="nav-item me-3">
+                            <a class="nav-link position-relative d-flex align-items-center" asp-controller="Shop" asp-action="Cart">
+                                <i class="fas fa-shopping-cart fa-lg"></i>
+                                <span id="cart-count" class="badge bg-danger position-absolute top-0 start-100 translate-middle rounded-pill"
+                                      style="font-size: 0.75rem; min-width: 20px;">0</span>
+                            </a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Shop" asp-action="Index">Shop</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" asp-controller="Account" asp-action="Profile">Profile</a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-danger" asp-controller="Account" asp-action="Logout">Logout</a>
+                        <!-- Account Dropdown -->
+                        <li class="nav-item dropdown">
+                            <a class="nav-link dropdown-toggle d-flex align-items-center" href="#" id="accountDropdown"
+                               role="button" data-bs-toggle="dropdown" aria-expanded="false">
+                                <i class="fas fa-user-circle fa-lg"></i>
+                            </a>
+                            <ul class="dropdown-menu dropdown-menu-end shadow-sm" aria-labelledby="accountDropdown">
+                                <li><a class="dropdown-item" asp-controller="Account" asp-action="Profile"><i class="fas fa-user me-2"></i> Profile</a></li>
+                                <li><a class="dropdown-item text-danger" asp-controller="Account" asp-action="Logout"><i class="fas fa-sign-out-alt me-2"></i> Logout</a></li>
+                            </ul>
                         </li>
                     </ul>
                 </div>
             </div>
         </nav>
     </header>
+
     <div class="container mt-3">
         <main role="main" class="pb-3">
             @RenderBody()
@@ -40,7 +50,7 @@
     </div>
     <footer class="border-top footer text-muted mt-3">
         <div class="container">
-            &copy; 2025 - Customer Portal - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
+            &copy; 2025 - BlueHouse - <a asp-controller="Home" asp-action="Privacy">Privacy</a>
         </div>
     </footer>
     <script src="~/lib/bootstrap/dist/js/bootstrap.bundle.min.js"></script>

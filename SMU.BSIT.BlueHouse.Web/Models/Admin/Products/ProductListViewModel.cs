@@ -1,6 +1,6 @@
-﻿namespace SMU.BSIT.BlueHouse.Web.Models.Admin
+﻿namespace SMU.BSIT.BlueHouse.Web.Models.Admin.Products
 {
-    public class ProductsViewModel
+    public class ProductListViewModel
     {
         public IEnumerable<ProductViewModel> Products { get; set; }
         public int Count { get; set; }

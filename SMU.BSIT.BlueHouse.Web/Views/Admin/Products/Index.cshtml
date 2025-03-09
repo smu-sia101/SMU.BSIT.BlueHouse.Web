@@ -1,4 +1,5 @@
-﻿@model SMU.BSIT.BlueHouse.Web.Models.Admin.ProductsViewModel
+﻿@using SMU.BSIT.BlueHouse.Web.Models.Admin.Products
+@model ProductListViewModel
 
 @{
     ViewData["Title"] = "Products";
@@ -7,17 +8,16 @@
 <!-- Create Button (Aligned Right) -->
 <div class="d-flex justify-content-between align-items-center mb-3">
     <span class="text-muted">Total Items: @Model.Count</span>
-    <a asp-action="Create" class="btn btn-primary">
-        <i class="fas fa-plus"></i> Create Product
+    <a asp-action="Create" class="btn btn-primary btn-sm">
+        <i class="fas fa-plus"></i> Add Product
     </a>
 </div>
 
-<!-- Minimalist Table -->
-<table class="table table-borderless table-hover shadow-sm rounded">
+<table class="table table-borderless table-hover table-sm shadow-sm rounded compact-table">
     <thead class="bg-light">
         <tr>
-            <th>Id</th>
             <th>Name</th>
+            <th>Stock</th>
             <th>Price</th>
             <th>Category</th>
             <th class="text-end">Actions</th>
@@ -27,11 +27,18 @@
         @foreach (var product in Model.Products)
         {
             <tr class="border-bottom">
-                <td>@product.Id</td>
-                <td>@product.Name</td>
-                <td>@product.Price</td>
+                <td>
+                    <a asp-action="Details" asp-route-id="@product.Id" class="text-decoration-none fw-bold">
+                        @product.Name
+                    </a>
+                </td>
+                <td>@product.Stock</td>
+                <td>₱@product.Price.ToString("N2")</td>
                 <td>@product.Category</td>
                 <td class="text-end">
+                    <a asp-action="Details" asp-route-id="@product.Id" class="btn btn-outline-info btn-sm">
+                        <i class="fas fa-eye"></i>
+                    </a>
                     <a asp-action="Edit" asp-route-id="@product.Id" class="btn btn-outline-warning btn-sm">
                         <i class="fas fa-edit"></i>
                     </a>

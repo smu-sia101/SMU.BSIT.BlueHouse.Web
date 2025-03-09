@@ -75,12 +75,26 @@ namespace SMU.BSIT.BlueHouse.Bus.Services.Products
             }
         }
 
-        public void Modify(ProductDTO product)
+        public void Modify(ProductDTO productUpdate)
         {
             if (_userService.HasPermission(Permission.Update, typeof(ProductModel)))
             {
-                ProductModel productModel = MapDTOtoModel(product);
-                _productRepository.Add(productModel);
+                ProductDTO existingProduct = GetById(productUpdate.Id);
+                if (existingProduct != null)
+                {
+                    if (productUpdate.CoverImage == null)
+                    {
+                        productUpdate.CoverImage = existingProduct.CoverImage;
+                        productUpdate.CoverImageType = existingProduct.CoverImageType;
+                    }
+
+                    ProductModel productModel = MapDTOtoModel(productUpdate);
+                    _productRepository.Modify(productModel);
+                }
+                else
+                {
+                    throw new NotSupportedException($"Product with id {productUpdate.Id} is not existing!");
+                }
             }
             else
             {
@@ -90,9 +104,14 @@ namespace SMU.BSIT.BlueHouse.Bus.Services.Products
 
         private ProductModel MapDTOtoModel(ProductDTO product)
         {
+            if (product == null)
+            {
+               throw new ArgumentNullException(nameof(product));
+            }
+
             return new ProductModel()
             {
-                Id = Guid.NewGuid(),
+                Id = product.Id,
                 Name = product.Name,
                 Description = product.Description,
                 Price = product.Price,
@@ -105,12 +124,17 @@ namespace SMU.BSIT.BlueHouse.Bus.Services.Products
                 ModifiedBy = _userService.Username,
                 Status = (int)product.Status,
                 CoverImage = product.CoverImage,
-                CoverImageType = "image/jpg"//TODO: Get type from byte[]
+                CoverImageType = product.CoverImageType
             };
         }
 
         private static ProductDTO MapModelToDTO(ProductModel product)
         {
+            if(product == null)
+            {
+                throw new ArgumentNullException(nameof(product));
+            }
+
             return new ProductDTO()
             {
                 Id = product.Id,

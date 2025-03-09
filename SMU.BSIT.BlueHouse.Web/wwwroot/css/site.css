@@ -148,6 +148,7 @@ nav.navbar {
 
 /* Table Styling */
 .table {
+    text-align:center;
     width: 100%;
     border-collapse: collapse;
     background: white;
@@ -175,3 +176,13 @@ nav.navbar {
     background-color: #f8f9fa !important; /* Lighter hover color */
 }
 
+.compact-table th,
+.compact-table td {
+    padding: 4px 8px !important; /* Reduce padding */
+    font-size: 14px; /* Reduce font size */
+}
+
+.compact-table a.btn-sm {
+    padding: 2px 6px !important; /* Reduce button padding */
+    font-size: 12px; /* Reduce button text size */
+}
